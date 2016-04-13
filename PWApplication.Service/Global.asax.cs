@@ -21,18 +21,14 @@ namespace PWApplication.Service
         {
             var unity = new UnityContainer();
             unity.RegisterType(typeof(IUserRepository), typeof(UserRepository));
-            //unity.RegisterType(typeof(IUserRepository), typeof(PwRepositoryStub));
             unity.RegisterType(typeof(ITransactionRepository), typeof(TransactionRepository));
             unity.RegisterType<IPasswordEncryptionService, PasswordEncryptionService>();
             var locator = new UnityServiceLocator(unity);
             ServiceLocator.SetLocatorProvider(() => locator);
             
-            //RouteTable.Routes.MapHubs(new HubConfiguration { EnableCrossDomain = true });
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
 
             GlobalConfiguration.Configuration.EnsureInitialized();
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         protected void Session_Start(object sender, EventArgs e)
