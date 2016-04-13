@@ -13,14 +13,15 @@
             <span ng-show="form.recipient.$dirty && form.recipient.$error.required" class="help-block">recipient is required</span>
 
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.amount.$dirty && form.amount.$error.required }">
+        <div class="form-group" ng-class="{ 'has-error': form.amount.$dirty && form.amount.$error.required && user.Balance < amount}">
             <label for="amount">Amount</label>
             <input type="text" ng-pattern="/[0-9]+/" name="amount" id="amount" class="form-control" ng-model="amount" required />
             <span ng-show="form.amount.$dirty && form.amount.$error.required" class="help-block">Please, set amount</span>
             <span ng-show="form.amount.$error.pattern" class="help-block">Amount must be number</span>
+            <span ng-show="user.Balance < amount" class="help-block">Not enough PW to remit the transaction</span>
         </div>
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Create</button>
+            <button type="submit" ng-disabled="form.$invalid && user.Balance < amount" class="btn btn-primary">Create</button>
         </div>
     </form>
 </div>
