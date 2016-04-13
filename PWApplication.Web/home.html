@@ -1,0 +1,59 @@
+﻿<div>
+    <table class="table table-striped" ng-show="transactions.length > 0">
+        <thead>
+            <tr>
+                <th>
+                    <div>
+                        <input ng-model="search.user" ng-change="filter1()" />
+                        <div class="inline" ng-click="search.user = undefined" ng-show="search.user != undefined"> X</div>
+                    </div>
+                    <div ng-click="sort('CorrespondentUser.ID')">
+                        Correspondent user <div ng-class="getSortClass('CorrespondentUser.ID')"></div>
+                    </div>
+                </th>
+
+                <th>
+                    <div>
+                        <input ng-model="filterExpression.DateTime" />
+                        <div class="inline" ng-click="filterExpression.DateTime = undefined" ng-show="filterExpression.DateTime != undefined"> X</div>
+                    </div>
+                    <div ng-click="sort('DateTime')">
+                        Date <div ng-class="getSortClass('DateTime')"></div>
+                    </div>
+                </th>
+
+                <th>
+                    <div>
+                        <input ng-model="filterExpression.Amount" />
+                        <div class="inline" ng-click="filterExpression.Amount = undefined" ng-show="filterExpression.Amount != undefined"> X</div>
+                    </div>
+                    <div ng-click="sort('Amount')">
+                        Amount <div ng-class="getSortClass('Amount')"></div>
+                    </div>
+                </th>
+
+                <th>
+                    <div>
+                        <input ng-model="filterExpression.ResultingBalance" />
+                        <div class="inline" ng-click="filterExpression.ResultingBalance = undefined" ng-show="filterExpression.ResultingBalance != undefined"> X</div>
+                    </div>
+                    <div ng-click="sort('ResultingBalance')">
+                        Resulting balance <div ng-class="getSortClass('ResultingBalance')"></div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="transaction in transactions | orderBy: sortProperty: reverse | filter: filterExpression" ng-click="setSelected(transaction)" ng-class="{'selected': transaction.ID == selectedTransaction.ID}">
+                <td>{{transaction.CorrespondentUser.FirstName}} {{transaction.CorrespondentUser.LastName}}</td>
+                <td>{{transaction.DateTime| date:'HH:mm:ss dd-MM-yyyy Z'}}</td>
+                <td>{{transaction.Amount}}</td>
+                <td>{{transaction.ResultingBalance}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button ng-click="create()" class="btn btn-primary inline">Create</button>
+        <button ng-click="createCopy()" ng-disabled="selectedTransaction == null" class="btn btn-primary inline">Create copy</button>
+    </div>
+</div>

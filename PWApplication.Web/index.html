@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="pwapp">
+<head>
+    <title>PW application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/site.css" rel="stylesheet" />
+    <link href="content/css/loading-bar.css" rel="stylesheet" />
+    <link href="content/css/social-buttons.css" rel="stylesheet" />
+    <link href="content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-controller="indexController">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+                <!--<a class="navbar-brand" data-ng-show="currentUser != undefined" href="#/transactions">Create transaction</a>-->
+
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-show="currentUser != undefined"><a href="#">Welcome, {{currentUser.name}}</a></li>
+                    <li data-ng-show="currentUser != undefined"><a href="#/">Balance: {{currentUser.balance}}</a></li>
+                    <li data-ng-show="currentUser != undefined"><a href="" data-ng-click="logout()">Logout</a></li>
+                    <li data-ng-show="currentUser == undefined"> <a href="#/login">Login</a></li>
+                    <li data-ng-show="currentUser == undefined"> <a href="#/register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <div data-ng-view="">
+        </div>
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-cookies.js"></script>
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="http://localhost:39700/signalr/js"></script>
+    <script src="http://localhost:39700/signalr/hubs"></script>
+
+
+    <script src="app.js"></script>
+    <script src="Services/services.js"></script>
+    <script src="index.controller.js"></script>
+    <script src="home.controller.js"></script>
+    <script src="Account/Login/login.controller.js"></script>
+    <script src="Account/Register/register.controller.js"></script>
+    <script src="Transaction/Create/transaction.create.controller.js"></script>
+</body>
+</html>

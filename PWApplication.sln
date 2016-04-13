@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.Model", "PWApplication.Model\PWApplication.Model.csproj", "{0D272A08-FB5C-406C-9D84-28E79F0AFE94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.DataAccess", "PWApplication.DataAccess\PWApplication.DataAccess.csproj", "{F597D6D7-5D92-44A5-A551-A12E70A958E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94} = {0D272A08-FB5C-406C-9D84-28E79F0AFE94}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.Service", "PWApplication.Service\PWApplication.Service.csproj", "{F0B5D968-D6BF-422E-9AB0-42E422077CFD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94} = {0D272A08-FB5C-406C-9D84-28E79F0AFE94}
+		{45491E5A-3D9D-4B04-9385-F6789ED60E0E} = {45491E5A-3D9D-4B04-9385-F6789ED60E0E}
+		{F597D6D7-5D92-44A5-A551-A12E70A958E2} = {F597D6D7-5D92-44A5-A551-A12E70A958E2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.Service.Test", "PWApplication.Service.Test\PWApplication.Service.Test.csproj", "{7898245C-0681-45A7-88E3-2DD203817EB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F0B5D968-D6BF-422E-9AB0-42E422077CFD} = {F0B5D968-D6BF-422E-9AB0-42E422077CFD}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0B7084EF-16CE-4027-9833-2450B7B2F59C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.Web", "PWApplication.Web\PWApplication.Web.csproj", "{48E39B49-316A-4B64-A946-260B08CCC6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWApplication.Contracts", "PWApplication.Contracts\PWApplication.Contracts.csproj", "{45491E5A-3D9D-4B04-9385-F6789ED60E0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D272A08-FB5C-406C-9D84-28E79F0AFE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F597D6D7-5D92-44A5-A551-A12E70A958E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F597D6D7-5D92-44A5-A551-A12E70A958E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F597D6D7-5D92-44A5-A551-A12E70A958E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F597D6D7-5D92-44A5-A551-A12E70A958E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B5D968-D6BF-422E-9AB0-42E422077CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B5D968-D6BF-422E-9AB0-42E422077CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B5D968-D6BF-422E-9AB0-42E422077CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B5D968-D6BF-422E-9AB0-42E422077CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7898245C-0681-45A7-88E3-2DD203817EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7898245C-0681-45A7-88E3-2DD203817EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7898245C-0681-45A7-88E3-2DD203817EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7898245C-0681-45A7-88E3-2DD203817EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E39B49-316A-4B64-A946-260B08CCC6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E39B49-316A-4B64-A946-260B08CCC6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E39B49-316A-4B64-A946-260B08CCC6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E39B49-316A-4B64-A946-260B08CCC6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45491E5A-3D9D-4B04-9385-F6789ED60E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45491E5A-3D9D-4B04-9385-F6789ED60E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45491E5A-3D9D-4B04-9385-F6789ED60E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45491E5A-3D9D-4B04-9385-F6789ED60E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7898245C-0681-45A7-88E3-2DD203817EB1} = {0B7084EF-16CE-4027-9833-2450B7B2F59C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+EndGlobal

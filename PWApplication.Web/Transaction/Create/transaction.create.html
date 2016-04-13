@@ -1,0 +1,26 @@
+﻿<div class="col-md-6 col-md-offset-1">
+
+    <script type="text/ng-template" id="customTemplate.html">
+        <div>{{match.model.FirstName}} {{match.model.LastName}} ({{match.model.Email}})</div>
+    </script>
+
+    <h2>Create transaction</h2>
+    <form name="form" ng-submit="create()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.recipient.$dirty && form.recipient.$error.required }">
+            <label for="recipient">Recipient</label>
+            <input type="text" ng-model="selected" typeahead-loading="dataLoading" uib-typeahead="user for user in users | filter:$viewValue | limitTo:8" typeahead-template-url="customTemplate.html" typeahead-input-formatter="$model.FirstName + ' ' + $model.LastName" class="form-control">
+
+            <span ng-show="form.recipient.$dirty && form.recipient.$error.required" class="help-block">recipient is required</span>
+
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.amount.$dirty && form.amount.$error.required }">
+            <label for="amount">Amount</label>
+            <input type="text" ng-pattern="/[0-9]+/" name="amount" id="amount" class="form-control" ng-model="amount" required />
+            <span ng-show="form.amount.$dirty && form.amount.$error.required" class="help-block">Please, set amount</span>
+            <span ng-show="form.amount.$error.pattern" class="help-block">Amount must be number</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
