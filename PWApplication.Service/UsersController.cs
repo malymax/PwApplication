@@ -39,6 +39,8 @@ namespace PWApplication.Service
         public UserInfo Get(int id)
         {
             var user = _repository.Get(id);
+            if (user == null)
+                return null;
             return ToInfo(user);
         }
 
@@ -46,6 +48,8 @@ namespace PWApplication.Service
         public UserInfo Get(string email)
         {
             var user = _repository.Get(email);
+            if (user == null)
+                return null;
             return ToInfo(user);
         }
 
