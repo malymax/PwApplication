@@ -27,6 +27,11 @@
                 isResultingBalance: false, balance: undefined
             };
 
+            if ($rootScope.currentUser == null) {
+                $location.path('/login');
+                return;
+            }
+
             TransactionService.GetByUser($rootScope.currentUser.login).then(function (response) {
                 if (response != null && response != [] && response.length > 0)
                     $scope.transactions = response;
