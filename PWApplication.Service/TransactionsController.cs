@@ -47,7 +47,7 @@ namespace PWApplication.Service
         {
             var transaction = FromInfo(value);
             transaction.DateTime = DateTime.Now;
-            transaction.ResultingBalance = transaction.CorrespondentUser.Balance - transaction.Amount;
+            transaction.ResultingBalance = transaction.OwnerUser.Balance - transaction.Amount;
 
             _repository.Create(transaction);
             var correspondentUser = transaction.CorrespondentUser;
@@ -57,7 +57,7 @@ namespace PWApplication.Service
             UpdateWithHub(correspondentUser);
             
             var user = transaction.OwnerUser;
-            user.Balance -= transaction.Amount;
+            user.Balance = transaction.ResultingBalance;
             _userRepository.Update(user);
             UpdateWithHub(user);
         }

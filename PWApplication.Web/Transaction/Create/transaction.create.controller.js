@@ -8,6 +8,7 @@
             $scope.selected = null;
             
             function create() {
+                DataProvider.data = null;
                 TransactionService.Create({ OwnerUser: { ID: $scope.user.ID }, CorrespondentUser: { ID: $scope.selected.ID }, Amount: $scope.amount }).then(function (response) {
                     if (response.success) {
                         $location.path('/home');

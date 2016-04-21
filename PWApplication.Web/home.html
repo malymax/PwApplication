@@ -4,8 +4,8 @@
             <tr>
                 <th>
                     <div>
-                        <input ng-model="search.user" ng-change="filter1()" />
-                        <div class="inline" ng-click="search.user = undefined" ng-show="search.user != undefined"> X</div>
+                        <input ng-model="filterExpression.CorrespondentUser" />
+                        <div class="inline" ng-click="filterExpression.CorrespondentUser = undefined" ng-show="filterExpression.CorrespondentUser != undefined"> X</div>
                     </div>
                     <div ng-click="sort('CorrespondentUser.ID')">
                         Correspondent user <div ng-class="getSortClass('CorrespondentUser.ID')"></div>
@@ -43,8 +43,8 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
-            <tr ng-repeat="transaction in transactions | orderBy: sortProperty: reverse | filter: filterExpression" ng-click="setSelected(transaction)" ng-class="{'selected': transaction.ID == selectedTransaction.ID}">
+        <tbody> 
+            <tr ng-repeat="transaction in transactions | orderBy: sortProperty: reverse | filterTransaction: filterExpression.CorrespondentUser:filterExpression.DateTime:filterExpression.Amount:filterExpression.ResultingBalance" ng-click="setSelected(transaction)" ng-class="{'selected': transaction.ID == selectedTransaction.ID}">
                 <td>{{transaction.CorrespondentUser.FirstName}} {{transaction.CorrespondentUser.LastName}}</td>
                 <td>{{transaction.DateTime| date:'HH:mm:ss dd-MM-yyyy Z'}}</td>
                 <td>{{transaction.Amount}}</td>

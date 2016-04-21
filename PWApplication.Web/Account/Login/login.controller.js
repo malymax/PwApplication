@@ -20,11 +20,6 @@
                         UserService.GetByLogin($scope.email).then(function (user) {
                             AuthenticationService.setCredentials(user, authdata);
 
-                            if ($rootScope.currentUser != null)
-                                $rootScope.$watch($rootScope.currentUser.balance, function (newValue, oldValue) {
-                                    scope.apply();
-                                });
-
                             SubscriptionService.subscribe();
                             $location.path('/home');
                         });

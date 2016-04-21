@@ -25,7 +25,7 @@ namespace PWApplication.Service
             unity.RegisterType<IPasswordEncryptionService, PasswordEncryptionService>();
             var locator = new UnityServiceLocator(unity);
             ServiceLocator.SetLocatorProvider(() => locator);
-            
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
 
             GlobalConfiguration.Configuration.EnsureInitialized();

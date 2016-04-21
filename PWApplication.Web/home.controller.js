@@ -11,8 +11,6 @@
             $scope.createCopy = createCopy;
             $scope.create = create;
 
-            $scope.filter1 = filter1;
-            $scope.filterProperty = 'Amount';
             $scope.filterExpression = {
                 CorrespondentUser: undefined,
                 DateTime: undefined,
@@ -49,13 +47,6 @@
             function getSortClass(property) {
                 if ($scope.sortProperty == property)
                     return $scope.reverse ? 'arrow-down' : 'arrow-up';
-            }
-
-            function filter1() {
-                $scope.filterExpression = {};
-                $scope.filterExpression.CorrespondentUser = $scope.search.user;
-                $scope.filterExpression.DateTime = $scope.search.datetime;
-                $scope.filterExpression.Amount = $scope.search.amount;
             }
 
             function setSelected (selectedTransaction) {

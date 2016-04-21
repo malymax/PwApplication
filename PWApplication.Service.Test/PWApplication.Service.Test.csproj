@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PWApplication.Service">
-      <HintPath>..\Binaries\PWApplication.Service.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -55,6 +52,12 @@
   <ItemGroup>
     <Compile Include="PasswordEncryptionServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PWApplication.Service\PWApplication.Service.csproj">
+      <Project>{f0b5d968-d6bf-422e-9ab0-42e422077cfd}</Project>
+      <Name>PWApplication.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
