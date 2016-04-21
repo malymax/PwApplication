@@ -17,7 +17,7 @@
                     if (response.success) {
                         $scope.hasErrors = false;
                         var authdata = AuthenticationService.setAuthorizationHeader($scope.email, $scope.password);
-                        UserService.GetByLogin($scope.email).then(function (user) {
+                        UserService.getByLogin($scope.email).then(function (user) {
                             AuthenticationService.setCredentials(user, authdata);
 
                             SubscriptionService.subscribe();

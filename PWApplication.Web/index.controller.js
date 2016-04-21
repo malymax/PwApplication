@@ -8,7 +8,12 @@
                 AuthenticationService.clearCredentials();
                 $location.path('/login');
             }
-            
+
+            if ($rootScope.currentUser != null) {
+                var authdata = AuthenticationService.setAuthorizationHeaderData($rootScope.currentUser.authdata);
+                SubscriptionService.subscribe();
+            }
+
             function logout() {
                 if ($rootScope.currentUser != null) {
                     SubscriptionService.unsubscribe();

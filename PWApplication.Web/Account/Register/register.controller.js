@@ -7,7 +7,7 @@
             
         	function register() {
         		$scope.dataLoading = true;
-        	    UserService.Create($scope.user)
+        	    UserService.create($scope.user)
 					.then(function (response) {
 						if (response.success) {
 							$location.path('/login');
@@ -19,7 +19,7 @@
 
         	function emailIsUnique() {
         	    if (!$scope.form.email.$error.email)
-        	        UserService.GetByLogin($scope.user.email).then(
+        	        UserService.getByLogin($scope.user.email).then(
                         function (response) {
                             $scope.emailIsNotUnique = response != undefined && response != null;
                         }

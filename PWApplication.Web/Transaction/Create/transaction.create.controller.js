@@ -21,7 +21,7 @@
 
             function loadUsers() {
                 $scope.dataLoading = true;
-                UserService.GetAll().then(function (response) {
+                UserService.getAll().then(function (response) {
                     $scope.users = response;
                     $scope.dataLoading = false;
                     return response;
@@ -29,7 +29,7 @@
             }
 
             function loadCurrentUser() {
-                UserService.GetByLogin($rootScope.currentUser.login).then(
+                UserService.getByLogin($rootScope.currentUser.login).then(
                     function (response) {
                         $scope.user = response;
                     }

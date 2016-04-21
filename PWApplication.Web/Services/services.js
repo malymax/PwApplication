@@ -9,26 +9,21 @@
     function UserService($http, appSettings) {
         var service = {};
 
-        service.GetAll = GetAll;
-        service.GetById = GetById;
-        service.GetByLogin = GetByLogin;
-        service.Create = Create;
+        service.getAll = getAll;
+        service.getByLogin = getByLogin;
+        service.create = create;
 
         return service;
 
-        function GetAll() {
+        function getAll() {
             return $http.get(appSettings.serviceUri + 'api/users').then(handleArray, handleError('Error getting all users'));
         }
 
-        function GetById(id) {
-            return $http.get(appSettings.serviceUri + 'api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
-        }
-
-        function GetByLogin(login) {
+        function getByLogin(login) {
             return $http.get(appSettings.serviceUri + 'api/users?email=' + login, { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Authorization': $http.defaults.headers.common.Authorization } }).then(handleSuccess, handleError);
         }
 
-        function Create(user) {
+        function create(user) {
             return $http.post(appSettings.serviceUri + 'api/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
@@ -69,6 +64,7 @@
         service.setCredentials = setCredentials;
         service.clearCredentials = clearCredentials;
         service.setAuthorizationHeader = setAuthorizationHeader;
+        service.setAuthorizationHeaderData = setAuthorizationHeaderData;
 
         return service;
 
@@ -85,6 +81,10 @@
             var authdata = Base64.encode(email + ':' + password);
             $http.defaults.headers.common.Authorization = 'Basic ' + authdata;
             return authdata;
+        }
+
+        function setAuthorizationHeaderData(authdata) {
+            $http.defaults.headers.common.Authorization = 'Basic ' + authdata;
         }
 
         function setCredentials(user, authdata) {
